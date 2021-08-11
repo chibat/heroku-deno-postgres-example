@@ -14,7 +14,7 @@ if (isNaN(port)) {
 const listener = Deno.listen({ port });
 console.log("http://localhost:" + port);
 
-const POOL_CONNECTIONS = 20;
+const POOL_CONNECTIONS = 2;
 const dbUrl = Deno.env.get("DATABASE_URL");
 const dbPool = new Pool(dbUrl, POOL_CONNECTIONS);
 
