@@ -1,11 +1,10 @@
-#!/usr/bin/env -S deno run --allow-net --allow-env=DATABASE_URL --unstable --unsafely-ignore-certificate-errors
+#!/usr/bin/env -S deno run --allow-net --allow-env=DATABASE_URL,PORT --unstable --unsafely-ignore-certificate-errors
 
-import * as flags from "https://deno.land/std@0.104.0/flags/mod.ts";
 import { Pool } from "https://deno.land/x/postgres@v0.11.3/mod.ts";
 
 const DEFAULT_PORT = 8080;
-const argPort = flags.parse(Deno.args).port;
-const port = argPort ? Number(argPort) : DEFAULT_PORT;
+const envPort = Deno.env.get("PORT");
+const port = envPort ? Number(envPort) : DEFAULT_PORT;
 
 if (isNaN(port)) {
   console.error("Port is not a number.");
