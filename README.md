@@ -24,8 +24,11 @@ date: Wed, 11 Aug 2021 11:42:53 GMT
 [["pg_type"]]
 ```
 
-<!--
 ## Deploying to Heroku
+
+...
+
+<!--
 ```
 $ heroku create --buildpack https://github.com/chibat/heroku-buildpack-deno.git
 $ git push heroku master
